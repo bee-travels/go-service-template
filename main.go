@@ -1,7 +1,9 @@
 package main
 
 import (
-	"github.com/{PROJECT_PATH}/{{.ServiceNamePill}}/wrappers/server" // Update
+	"{{.ServiceNamePill}}/internal/handler"
+	"{{.ServiceNamePill}}/wrappers/server"
+
 	instana "github.com/instana/go-sensor"
 )
 
@@ -13,7 +15,14 @@ func main() {
 
 func initializeRouter(router server.PathRouter, _ *instana.Sensor) {
 	router.Path("/api/v1/{{.Route}}", func(router server.PathRouter) {
-		// path: /api/v1/{{.Route}}
-		router.Get(getData())
+		/**
+		* GET /api/v1/{{.Route}}
+		* @tag {{.Route}}
+		* @summary Get data
+		* @description {{.ServiceNameTitle}} data
+		* @response 200 - OK
+		* @response 500 - Internal Server Error
+		*/
+		router.Get(handler.GetData())
 	})
 }

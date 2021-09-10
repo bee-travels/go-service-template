@@ -1,4 +1,4 @@
-package main
+package data
 
 type CustomType struct {
 	Implement string `json:"implement"`

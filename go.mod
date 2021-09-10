@@ -1,6 +1,6 @@
-module github.com/{PROJECT_PATH}/{{.ServiceNamePill}} // Update
+module {{.ServiceNamePill}}
 
-go 1.14
+go 1.15
 
 require (
 	github.com/Joker/hpp v1.0.0 // indirect
