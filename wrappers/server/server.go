@@ -63,14 +63,14 @@ func Start(serviceName string, init RouterInitializer) error {
 	// Initialize user registered handlers
 	init(&innerRouter{party: app}, sensor)
 
-	port := ":{{.Port}}"
+	port := "{{.Port}}"
 	if addr, ok := os.LookupEnv("PORT"); ok {
 		port = addr
 	}
 	address := fmt.Sprintf(":%s", port)
 
 	fmt.Println("Starting webserver...")
-	err = app.Listen(address)
+	err := app.Listen(address)
 	if err != nil {
 		return errors.Errorf("Couldn't start authentication server: %v", err)
 	}
